@@ -16,13 +16,29 @@ THE PLAN
 ========
 Basic structure of the site:
 
+Data:
+* Separate files for API interaction
+* Use of contexts in preference to prop drilling in order to share data
+* Use of Error Boundaries to better handle errors 
+
+UI:
+* Use React Suspend feature to enable better "loading" user feedback
+* Leaving all css to the end as more interested in getting the functionality working
+
 Layout Page
-    Articles Page
-    Article Page
-    Comments Page
-    Topics Page
+    Articles Page (uses List & Card Container components)
+        Article Page
+            => Article Component (uses Card Container component)
+    Comments Page (uses List & Card Container components)
+            => Comment Component (uses Card Container component)
+                => Vote component
+    Topics Page (uses List components)
+            => Topic Component (uses Card Container component)
 
 Generic Components:
 
+Header
+CONTENT
+Footer
 Card Container (to display a single entity of variable type)
 List component (to display a list of entities of variable type)
