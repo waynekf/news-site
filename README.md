@@ -11,29 +11,30 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
+# THE PLAN
 
-THE PLAN
-========
 Basic structure of the site:
 
 Data:
-* Separate files for API interaction
-* Use of contexts in preference to prop drilling in order to share data
-* Use of Error Boundaries to better handle errors 
+
+- Separate files for API interaction
+- Use of contexts in preference to prop drilling in order to share data
+- Use of Error Boundaries to better handle errors
 
 UI:
-* Use React Suspend feature to enable better "loading" user feedback
-* Leaving all css to the end as more interested in getting the functionality working
+
+- Use React Suspend feature to enable better "loading" user feedback
+- Leaving all css to the end as more interested in getting the functionality working
 
 Layout Page
-    Articles Page (uses List & Card Container components)
-        Article Page
-            => Article Component (uses Card Container component)
-    Comments Page (uses List & Card Container components)
-            => Comment Component (uses Card Container component)
-                => Vote component
-    Topics Page (uses List components)
-            => Topic Component (uses Card Container component)
+Articles Page (uses List & Card Container components)
+Article Page
+=> Article Component (uses Card Container component)
+Comments Page (uses List & Card Container components)
+=> Comment Component (uses Card Container component)
+=> Vote component
+Topics Page (uses List components)
+=> Topic Component (uses Card Container component)
 
 Generic Components:
 
