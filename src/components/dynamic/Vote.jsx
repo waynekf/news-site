@@ -1,5 +1,5 @@
 function Vote() {
-  return <div></div>;
+  return <div>Not for Kier Starmer</div>;
 }
 
 export default Vote;

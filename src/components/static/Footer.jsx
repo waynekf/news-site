@@ -1,5 +1,11 @@
+import Navigation from "../static/Navigation";
+
 function Footer() {
-  return <footer>footer</footer>;
+  return (
+    <footer>
+      <Navigation />
+    </footer>
+  );
 }
 
 export default Footer;

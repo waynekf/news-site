@@ -1,9 +1,0 @@
-function List() {
-  return <ul>
-    <li>first item</li>
-    <li>second item</li>
-    <li>third item</li>
-  </ul>;
-}
-
-export default List;
