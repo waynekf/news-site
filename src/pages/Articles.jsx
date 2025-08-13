@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Spinner from "react-loading-indicators";
-import List from "../components/generic/List";
+import List from "../components/generic/Lists/List";
 import Layout from "../components/layouts/Layout";
 import ArticlesList from "../components/generic/Lists/ArticlesList";
 
@@ -10,12 +10,12 @@ function Articles() {
       <h2>Articles:</h2>
       <Suspense
         fallback={
-          <List>
+          <List className="articles-list">
             <Spinner className="spinner" style={{ fontSize: "8px" }} />
           </List>
         }
       >
-        <List>
+        <List className="articles-list">
           <ArticlesList />
         </List>
       </Suspense>

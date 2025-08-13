@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import Detail from "../Detail";
+import Detail from "../Detail/Detail";
 
 const NotFound = () => {
   const url = `/articles`;

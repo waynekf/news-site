@@ -1,6 +1,6 @@
-import Card from "../Card";
+import Card from "./Card";
 
-function CommentCard() {
+function CommentCard({ index, comment }) {
   return (
     <Card className="comment-card">
       <div>

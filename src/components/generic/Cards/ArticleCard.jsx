@@ -1,8 +1,7 @@
 import { Link } from "react-router";
-import Card from "../Card";
+import Card from "./Card";
 
 function ArticleCard({ index, article }) {
-  const url = `/articles/${article.article_id}`;
   return (
     <Card className="article-card">
       <ul>
@@ -17,7 +16,9 @@ function ArticleCard({ index, article }) {
           <img src={article.article_img_url} alt={article.title} />
         </li>
       </ul>
-      <Link to={url}>Read article</Link>
+      <Link to={`/articles/${article.article_id}`}>Read article</Link>
+      <br />
+      <Link to={`/articles/${article.article_id}/comments`}>Read comments</Link>
     </Card>
   );
 }

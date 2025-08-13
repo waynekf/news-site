@@ -1,4 +1,4 @@
-import Card from "../Card";
+import Card from "./Card";
 
 function TopicCard({ children }) {
   return <Card className="topic-card">{children}</Card>;

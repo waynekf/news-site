@@ -1,7 +1,7 @@
-function List({ children }) {
+function List({ className, children }) {
   return (
     <div
-      className="list"
+      className={"list" + (className && " " + className)}
       style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}
     >
       {children}

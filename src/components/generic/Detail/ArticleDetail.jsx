@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useParams } from "react-router-dom";
-import Detail from "../Detail";
+import Detail from "./Detail";
 import NotFound from "../Errors/NotFound";
 import fetchArticle from "../../../apis/fetchArticle";
 
@@ -27,20 +27,16 @@ const ArticleDetail = () => {
   }, []);
 
   if (notFound) {
+    return <NotFound></NotFound>;
+  } else if (isLoading) {
     return (
-      <NotFound>
-      </NotFound>
-    )
-  }
-  else if (isLoading) {
-    return (
-      <Detail>
+      <Detail className="article-detail">
         <p>Loading...</p>
       </Detail>
     );
   } else {
     return (
-      <Detail>
+      <Detail className="article-detail">
         <ul>
           <li>
             <p>
