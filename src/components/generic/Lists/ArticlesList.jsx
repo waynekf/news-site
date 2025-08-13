@@ -14,7 +14,7 @@ const ArticlesList = () => {
     <>
       {articles.map((article, index) => (
         <ArticleCard
-          key={article?.article_id}
+          key={`article-card-${article?.article_id}`}
           index={index}
           article={article}
         />

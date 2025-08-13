@@ -1,44 +1,38 @@
 import { useEffect, useState } from "react";
 import fetchComments from "../../../apis/fetchComments";
 import CommentCard from "../Cards/CommentCard";
+import Detail from "../Detail/Detail";
 
 function CommentsList({ id }) {
   const [comments, setComments] = useState([]);
-  useEffect(() => {
-    fetchComments(id).then((comments) => {
-      setComments(comments);
-    });
-  }, []);
-
-  return (
-    <>
-      {comments.map((comment, index) => (
-        <CommentCard key={comment?.id} index={index} comment={comment} />
-      ))}
-    </>
-  );
-}
-
-export default CommentsList;
-
-/*
-
-
-  useEffect(() => {
-  }, []);
-
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setIsLoading(true);
-    fetchArticle(id)
-      .then((data) => {
-        setArticle(data);
+    fetchComments(id)
+      .then((comments) => {
+        setComments(comments);
       })
-      .catch((error) => {
-        setIsLoading(false);
-        setNotFound(true);
-      })
-      .finally(() => {
+      .finally((error) => {
         setIsLoading(false);
       });
   }, []);
-  */
+  if (isLoading) {
+    return (<Detail className="article-detail">
+      <p>Loading...</p>
+    </Detail>);
+  } else {
+    return (
+      <>
+        {comments.map((comment, index) => (
+          <CommentCard
+            key={`comment-card-${comment?.comment_id}`}
+            index={index}
+            comment={comment}
+          />
+        ))}
+      </>
+    );
+  }
+}
+
+export default CommentsList;

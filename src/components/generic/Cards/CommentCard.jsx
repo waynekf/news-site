@@ -3,9 +3,12 @@ import Card from "./Card";
 function CommentCard({ index, comment }) {
   return (
     <Card className="comment-card">
-      <div>
-        <p>Comment</p>
-      </div>
+      Comment made by {comment.author} on {new Date(comment.created_at).toLocaleDateString()}:
+      <textarea
+        className="comment-text"
+        defaultValue={comment.body}
+        readOnly
+      ></textarea>
     </Card>
   );
 }

@@ -8,15 +8,7 @@ function Article() {
   return (
     <Layout>
       <h2>Article:</h2>
-      <Suspense
-        fallback={
-          <Detail>
-            <Spinner className="spinner" style={{ fontSize: "8px" }} />
-          </Detail>
-        }
-      >
-        <ArticleDetail />
-      </Suspense>
+      <ArticleDetail />
     </Layout>
   );
 }
