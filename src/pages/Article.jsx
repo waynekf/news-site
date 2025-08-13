@@ -13,7 +13,8 @@ function Article() {
           <Detail>
             <Spinner className="spinner" style={{ fontSize: "8px" }} />
           </Detail>
-        }>
+        }
+      >
         <ArticleDetail />
       </Suspense>
     </Layout>

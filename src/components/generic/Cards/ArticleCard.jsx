@@ -4,7 +4,7 @@ import Card from "../Card";
 function ArticleCard({ index, article }) {
   const url = `/articles/${article.article_id}`;
   return (
-    <Card>
+    <Card className="article-card">
       <ul>
         <li>
           <p>Title: {article.title}</p>
@@ -17,7 +17,7 @@ function ArticleCard({ index, article }) {
           <img src={article.article_img_url} alt={article.title} />
         </li>
       </ul>
-      <Link to={url}>Detail...</Link>
+      <Link to={url}>Read article</Link>
     </Card>
   );
 }

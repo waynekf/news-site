@@ -1,7 +1,7 @@
 import Card from "../Card";
 
 function TopicCard({ children }) {
-  return <Card>{children}</Card>;
+  return <Card className="topic-card">{children}</Card>;
 }
 
 export default TopicCard;
