@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useParams } from "react-router-dom";
 import Detail from "../Detail";
+import NotFound from "../Errors/NotFound";
 import fetchArticle from "../../../apis/fetchArticle";
 
 const ArticleDetail = () => {
   const { id } = useParams();
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [notFound, setNotFound] = useState(false);
   const url = `/articles`;
   useEffect(() => {
     setIsLoading(true);
@@ -17,13 +19,20 @@ const ArticleDetail = () => {
       })
       .catch((error) => {
         setIsLoading(false);
+        setNotFound(true);
       })
       .finally(() => {
         setIsLoading(false);
       });
   }, []);
 
-  if (isLoading) {
+  if (notFound) {
+    return (
+      <NotFound>
+      </NotFound>
+    )
+  }
+  else if (isLoading) {
     return (
       <Detail>
         <p>Loading...</p>

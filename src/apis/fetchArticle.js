@@ -13,7 +13,9 @@ function fetchArticle(id) {
       return json;
     })
     .then((articles) => {
-      console.log(articles, "fetch");
+      if (articles.msg) {
+        throw "Article not found";  /*must have done the API wrong*/
+      }
       if (articles.length === 0) {
         return Promise.reject({
           status: res.status,
@@ -24,7 +26,7 @@ function fetchArticle(id) {
       return articles;
     })
     .catch((error) => {
-      console.log(error, "error");
+      throw error;
     });
 }
 
