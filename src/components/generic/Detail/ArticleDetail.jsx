@@ -35,7 +35,7 @@ if (isLoading) {
       <ul>
         <li>
           <p>
-            <u>{article.title}</u> by <b>{article.author}    {isLoading ? "true" : "false" }  </b>:
+            <u>{article.title}</u> by <b>{article.author}</b>:
           </p>
         </li>
         <li>

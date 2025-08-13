@@ -5,6 +5,8 @@ import Articles from "./pages/Articles";
 import Article from "./pages/Article";
 import Comments from "./pages/Comments";
 import Topics from "./pages/Topics";
+import NotFound from "./components/generic/Errors/NotFound";
+
 import "./css/App.css";
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
       <Route path="/articles/:id" element={<Article />} />
       <Route path="/comments" element={<Comments />} />
       <Route path="/topics" element={<Topics />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }

@@ -7,7 +7,7 @@ function ArticleCard({ index, article }) {
     <Card>
       <ul>
         <li>
-          <p>Title:{article.title}</p>
+          <p>Title: {article.title}</p>
         </li>
         <li>Author: {article.author}</li>
         <li>Topic: {article.topic}</li>
