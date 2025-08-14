@@ -1,12 +1,11 @@
 import Card from "./Card";
 import deleteComment from "../../../apis/deleteComment";
 
-function CommentCard({ index, comment, handleCommentDelete}) {
+function CommentCard({ index, comment, handleCommentDelete }) {
   const handleClick = function () {
-    deleteComment(comment.comment_id)
-      .then((data) => {
-        handleCommentDelete(comment.comment_id);
-      });
+    deleteComment(comment.comment_id).then((data) => {
+      handleCommentDelete(comment.comment_id);
+    });
   };
   return (
     <Card className="comment-card">

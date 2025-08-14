@@ -7,7 +7,7 @@ import Loading from "../Alerts/Loading";
 function CommentsList({ id }) {
   const handleCommentDelete = function (id) {
     setCommentsDeleted([...commentsDeleted, id]);
-  }
+  };
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [commentsDeleted, setCommentsDeleted] = useState([]);
@@ -35,7 +35,7 @@ function CommentsList({ id }) {
             key={`comment-card-${comment?.comment_id}`}
             index={index}
             comment={comment}
-            handleCommentDelete = {handleCommentDelete}
+            handleCommentDelete={handleCommentDelete}
           />
         ))}
       </>
