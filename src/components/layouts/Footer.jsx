@@ -1,4 +1,4 @@
-import Navigation from "../static/Navigation";
+import Navigation from "./Navigation";
 
 function Footer() {
   return (

@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import Card from "./Card";
+import Card from "../../layouts/Card";
 
 function TopicCard({ index, topic }) {
   return (

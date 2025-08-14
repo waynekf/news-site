@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import fetchTopics from "../../../apis/fetchTopics";
-import TopicCard from "../Cards/TopicCard";
-import Detail from "../Detail/Detail";
-import Loading from "../Alerts/Loading";
+import TopicCard from "./TopicCard";
+import Detail from "../../layouts/Detail";
+import Loading from "../general/Loading";
 
 function TopicsList({ id }) {
+  //wgkf check
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {

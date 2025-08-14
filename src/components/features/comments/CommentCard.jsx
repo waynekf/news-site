@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "../../layouts/Card";
 import deleteComment from "../../../apis/deleteComment";
 
 function CommentCard({ index, comment, handleCommentDelete }) {

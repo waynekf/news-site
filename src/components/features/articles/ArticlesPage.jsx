@@ -1,18 +1,18 @@
 import { Suspense } from "react";
 import Spinner from "react-loading-indicators";
-import List from "../components/generic/Lists/List";
-import Layout from "../components/layouts/Layout";
-import ArticlesList from "../components/generic/Lists/ArticlesList";
+import List from "../../layouts/List";
+import Layout from "../../layouts/Layout";
+import ArticlesList from "./ArticlesList";
 import { useParams } from "react-router-dom";
 
-function Articles(topic) {
+function ArticlesPage(topic) {
   const { id } = useParams();
 
   const list = id ? <ArticlesList topic={id} /> : <ArticlesList />;
 
   return (
     <Layout>
-      <h2>Articles{id ? " about ".concat(id): ""}:</h2>
+      <h2>Articles{id ? " about ".concat(id) : ""}:</h2>
       <Suspense
         fallback={
           <List className="articles-list">
@@ -26,4 +26,4 @@ function Articles(topic) {
   );
 }
 
-export default Articles;
+export default ArticlesPage;

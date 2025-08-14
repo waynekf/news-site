@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import fetchComments from "../../../apis/fetchComments";
-import CommentCard from "../Cards/CommentCard";
-import Detail from "../Detail/Detail";
-import Loading from "../Alerts/Loading";
+import CommentCard from "./CommentCard";
+import Detail from "../../layouts/Detail";
+import Loading from "../general/Loading";
 
 function CommentsList({ id }) {
   const handleCommentDelete = function (id) {

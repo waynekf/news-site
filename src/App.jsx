@@ -1,26 +1,26 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Articles from "./pages/Articles";
-import Article from "./pages/Article";
-import Comments from "./pages/Comments";
-import Topics from "./pages/Topics";
-import NotFound from "./components/generic/Errors/NotFound";
+import HomePage from "./components/features/home/HomePage";
+import AboutPage from "./components/features/about/AboutPage";
+import ArticlesPage from "./components/features/articles/ArticlesPage";
+import ArticlePage from "./components/features/articles/ArticlePage";
+import CommentsPage from "./components/features/comments/CommentsPage";
+import Topics from "./components/features/topics/TopicsPage";
+import NotFound from "./components/features/errors/NotFound";
 
 import "./css/App.css";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/articles" element={<Articles />} />
-      <Route path="/articles/:id" element={<Article />} />
-      <Route path="/articles/:id/comments" element={<Comments />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/articles" element={<ArticlesPage />} />
+      <Route path="/articles/:id" element={<ArticlePage />} />
+      <Route path="/articles/:id/comments" element={<CommentsPage />} />
       <Route path="/topics" element={<Topics />} />
       <Route path="/topics/:id" element={<Topics />} />
-      <Route path="/topics/:id/articles/" element={<Articles />} />
+      <Route path="/topics/:id/articles/" element={<ArticlesPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

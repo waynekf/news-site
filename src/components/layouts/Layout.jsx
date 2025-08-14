@@ -1,9 +1,12 @@
-import Header from "../static/Header";
-import Footer from "../static/Footer";
+import Header from "./Header";
+import Footer from "./Footer";
+import { useTheme } from "../contexts/ThemeContext";
 
 function Layout({ children }) {
+  const { darkMode } = useTheme();
   return (
     <div>
+      {darkMode ? "true" : "false"}
       <Header />
       <main>{children}</main>
       <Footer />
@@ -12,3 +15,5 @@ function Layout({ children }) {
 }
 
 export default Layout;
+
+

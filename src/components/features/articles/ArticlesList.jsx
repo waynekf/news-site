@@ -1,6 +1,6 @@
 import { useState } from "react";
 import fetchArticles from "../../../apis/fetchArticles";
-import ArticleCard from "../Cards/ArticleCard";
+import ArticleCard from "./ArticleCard";
 
 const fetchData = fetchArticles();
 
@@ -26,15 +26,16 @@ const ArticlesList = ({ topic }) => {
     );
   } else {
     return (
-    <>
-      {articles.map((article, index) => (
-        <ArticleCard
-          key={`article-card-${article?.article_id}`}
-          index={index}
-          article={article}
-        />
-      ))}
-    </>);
+      <>
+        {articles.map((article, index) => (
+          <ArticleCard
+            key={`article-card-${article?.article_id}`}
+            index={index}
+            article={article}
+          />
+        ))}
+      </>
+    );
   }
 };
 

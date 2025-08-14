@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useParams } from "react-router-dom";
-import Detail from "./Detail";
-import NotFound from "../Errors/NotFound";
+import Detail from "../../layouts/Detail";
+import NotFound from "../errors/NotFound";
 import fetchArticle from "../../../apis/fetchArticle";
-import Loading from "../Alerts/Loading";
+import Loading from "../general/Loading";
 
 const ArticleDetail = () => {
   const { id } = useParams();
