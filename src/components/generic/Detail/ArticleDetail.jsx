@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Detail from "./Detail";
 import NotFound from "../Errors/NotFound";
 import fetchArticle from "../../../apis/fetchArticle";
+import Loading from "../Alerts/Loading";
 
 const ArticleDetail = () => {
   const { id } = useParams();
@@ -31,7 +32,7 @@ const ArticleDetail = () => {
   } else if (isLoading) {
     return (
       <Detail className="article-detail">
-        <p>Loading...</p>
+        <Loading />
       </Detail>
     );
   } else {
