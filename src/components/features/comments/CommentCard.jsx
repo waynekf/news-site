@@ -1,5 +1,6 @@
 import Card from "../../layouts/Card";
 import deleteComment from "../../../apis/deleteComment";
+import { useProfileContext } from "../../contexts/ProfileContext";
 
 function CommentCard({ index, comment, handleCommentDelete }) {
   const handleClick = function () {
@@ -7,6 +8,9 @@ function CommentCard({ index, comment, handleCommentDelete }) {
       handleCommentDelete(comment.comment_id);
     });
   };
+
+  const { user } = useProfileContext();
+
   return (
     <Card className="comment-card">
       Comment made by {comment.author} on{" "}
@@ -16,7 +20,7 @@ function CommentCard({ index, comment, handleCommentDelete }) {
         defaultValue={comment.body}
         readOnly
       ></textarea>
-      <button onClick={handleClick}>Delete</button>
+      <button disabled={user.name !== comment.author} onClick={handleClick}>Delete</button>
     </Card>
   );
 }
