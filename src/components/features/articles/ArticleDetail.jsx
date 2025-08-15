@@ -4,37 +4,31 @@ import { useParams } from "react-router-dom";
 import Detail from "../../layouts/Detail";
 import NotFound from "../errors/NotFound";
 import fetchArticle from "../../../apis/fetchArticle";
-import Loading from "../general/Loading";
+import { useIsLoadingContext } from "../../contexts/IsLoadingContext";
 
 const ArticleDetail = () => {
   const { id } = useParams();
   const [article, setArticle] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const { hideLoading, showLoading } = useIsLoadingContext();
   const [notFound, setNotFound] = useState(false);
   const url = `/articles`;
   useEffect(() => {
-    setIsLoading(true);
+    showLoading();
     fetchArticle(id)
       .then((data) => {
         setArticle(data);
       })
       .catch((error) => {
-        setIsLoading(false);
+        hideLoading();
         setNotFound(true);
       })
       .finally(() => {
-        setIsLoading(false);
+        hideLoading();
       });
   }, []);
 
   if (notFound) {
     return <NotFound></NotFound>;
-  } else if (isLoading) {
-    return (
-      <Detail className="article-detail">
-        <Loading />
-      </Detail>
-    );
   } else {
     return (
       <Detail className="article-detail">

@@ -1,20 +1,30 @@
 import { createContext, useContext, useState } from "react";
 
-export const IsLoadingContext = createContext({ isLoading: false });
+const IsLoadingContext = createContext();
 
 export const useIsLoadingContext = () => {
-  const context = useContext(IsLoadingContext);
-
-  return context;
+  return useContext(IsLoadingContext);
 };
-
-export default IsLoadingContext;
 
 export const IsLoadingProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
+  const toggleIsLoading = () => {
+    setIsLoading((isLoading) => !isLoading);
+  };
+
+  const showLoading = () => {
+    setIsLoading(true);
+  };
+
+  const hideLoading = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <IsLoadingContext.Provider value={{ isLoading, setIsLoading }}>
+    <IsLoadingContext.Provider
+      value={{ toggleIsLoading, showLoading, hideLoading, isLoading }}
+    >
       {children}
     </IsLoadingContext.Provider>
   );

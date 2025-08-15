@@ -1,46 +1,38 @@
 import { useEffect, useState } from "react";
 import fetchComments from "../../../apis/fetchComments";
 import CommentCard from "./CommentCard";
-import Detail from "../../layouts/Detail";
-import Loading from "../general/Loading";
+import { useIsLoadingContext } from "../../contexts/IsLoadingContext";
 
 function CommentsList({ id }) {
   const handleCommentDelete = function (id) {
     setCommentsDeleted([...commentsDeleted, id]);
   };
   const [comments, setComments] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { hideLoading, showLoading } = useIsLoadingContext();
   const [commentsDeleted, setCommentsDeleted] = useState([]);
   useEffect(() => {
-    setIsLoading(true);
+    showLoading();
     fetchComments(id)
       .then((comments) => {
         setComments(comments);
       })
       .finally((error) => {
-        setIsLoading(false);
+        hideLoading();
       });
   }, [commentsDeleted]);
-  if (isLoading) {
-    return (
-      <Detail className="article-detail">
-        <Loading />
-      </Detail>
-    );
-  } else {
-    return (
-      <>
-        {comments.map((comment, index) => (
-          <CommentCard
-            key={`comment-card-${comment?.comment_id}`}
-            index={index}
-            comment={comment}
-            handleCommentDelete={handleCommentDelete}
-          />
-        ))}
-      </>
-    );
-  }
+
+  return (
+    <>
+      {comments.map((comment, index) => (
+        <CommentCard
+          key={`comment-card-${comment?.comment_id}`}
+          index={index}
+          comment={comment}
+          handleCommentDelete={handleCommentDelete}
+        />
+      ))}
+    </>
+  );
 }
 
 export default CommentsList;

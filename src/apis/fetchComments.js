@@ -1,7 +1,10 @@
+import wait from "../utils/wait";
+
 function fetchComments(articleId) {
   const url = `https://northcoders-news-be-udwh.onrender.com/api/articles/${articleId}/comments`;
   return fetch(url)
     .then((res) => {
+      wait(750);
       if (res.status === 404) {
         return Promise.reject({
           status: res.status,

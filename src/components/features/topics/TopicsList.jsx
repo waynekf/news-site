@@ -1,44 +1,33 @@
 import { useEffect, useState } from "react";
 import fetchTopics from "../../../apis/fetchTopics";
 import TopicCard from "./TopicCard";
-import Detail from "../../layouts/Detail";
-import Loading from "../general/Loading";
+import { useIsLoadingContext } from "../../contexts/IsLoadingContext";
 
-function TopicsList({ id }) {
-  //wgkf check
+function TopicsList() {
   const [topics, setTopics] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { hideLoading, showLoading } = useIsLoadingContext();
   useEffect(() => {
-    setIsLoading(true);
+    showLoading();
     fetchTopics()
       .then((topics) => {
-        console.log(topics);
-        console.log(topics.length);
         setTopics(topics);
       })
       .finally((error) => {
-        setIsLoading(false);
+        hideLoading();
       });
   }, []);
-  if (isLoading) {
-    return (
-      <Detail className="topic-detail">
-        <Loading />
-      </Detail>
-    );
-  } else {
-    return (
-      <>
-        {topics.map((topic, index) => (
-          <TopicCard
-            key={`topic-card-${topic?.slug}`}
-            index={index}
-            topic={topic}
-          />
-        ))}
-      </>
-    );
-  }
+
+  return (
+    <>
+      {topics.map((topic, index) => (
+        <TopicCard
+          key={`topic-card-${topic?.slug}`}
+          index={index}
+          topic={topic}
+        />
+      ))}
+    </>
+  );
 }
 
 export default TopicsList;

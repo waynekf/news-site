@@ -7,7 +7,7 @@ function fetchArticles() {
   const url = `https://northcoders-news-be-udwh.onrender.com/api/articles`;
   let fetching = fetch(url)
     .then((res) => {
-      wait(1000);
+      wait(750);
       if (res.status === 404) {
         return Promise.reject({
           status: res.status,

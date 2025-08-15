@@ -1,12 +1,13 @@
 import Header from "./Header";
 import Footer from "./Footer";
-import { useTheme } from "../contexts/ThemeContext";
+import { useIsLoadingContext } from "../contexts/IsLoadingContext";
+import Loading from "../features/general/Loading";
 
 function Layout({ children }) {
-  const { darkMode } = useTheme();
+  const { isLoading } = useIsLoadingContext();
   return (
     <div>
-      {darkMode ? "true" : "false"}
+      {isLoading && <Loading />}
       <Header />
       <main>{children}</main>
       <Footer />
@@ -15,5 +16,3 @@ function Layout({ children }) {
 }
 
 export default Layout;
-
-
