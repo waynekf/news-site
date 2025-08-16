@@ -7,16 +7,14 @@ export const useProfileContext = () => {
 };
 
 export const ProfileProvider = ({ children }) => {
-  const [user, setUser] = useState({name: "grumpy19"});
+  const [user, setUser] = useState({ name: "grumpy19" });
 
   const login = (usr) => {
     setUser(usr);
   };
 
   return (
-    <ProfileContext.Provider
-      value={{ user, login }}
-    >
+    <ProfileContext.Provider value={{ user, login }}>
       {children}
     </ProfileContext.Provider>
   );

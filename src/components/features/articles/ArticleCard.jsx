@@ -10,8 +10,9 @@ function ArticleCard({ index, article }) {
         </li>
         <li>Author: {article.author}</li>
         <li>Topic: {article.topic}</li>
-        <li>Topic: {article.comment_count}</li>
-        <li>Votes: {article.votes}</li>
+        <li>Number of comments: {article.comment_count}</li>
+        <li>Number of votes: {article.votes}</li>
+        <li>Created: {new Date(article.created_at).toLocaleDateString()}</li>
         <li>
           <img src={article.article_img_url} alt={article.title} />
         </li>

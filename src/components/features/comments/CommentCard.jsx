@@ -20,7 +20,9 @@ function CommentCard({ index, comment, handleCommentDelete }) {
         defaultValue={comment.body}
         readOnly
       ></textarea>
-      <button disabled={user.name !== comment.author} onClick={handleClick}>Delete</button>
+      <button disabled={user.name !== comment.author} onClick={handleClick}>
+        Delete
+      </button>
     </Card>
   );
 }

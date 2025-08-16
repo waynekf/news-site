@@ -1,11 +1,8 @@
 import wait from "../utils/wait";
 
-let status = "pending";
-let result;
-
 function fetchArticles() {
   const url = `https://northcoders-news-be-udwh.onrender.com/api/articles`;
-  let fetching = fetch(url)
+  return fetch(url)
     .then((res) => {
       wait(750);
       if (res.status === 404) {
@@ -15,8 +12,6 @@ function fetchArticles() {
         });
       }
       const json = res.json();
-      status = "fulfilled";
-      result = json;
 
       return json;
     })
@@ -30,20 +25,7 @@ function fetchArticles() {
 
       return articles.articles;
     })
-    .catch((error) => {
-      status = "rejected";
-      result = error;
-    });
-
-  return () => {
-    if (status === "pending") {
-      throw fetching;
-    } else if (status === "rejected") {
-      throw result;
-    } else if (status === "fulfilled") {
-      return result;
-    }
-  };
+    .catch((error) => {});
 }
 
 export default fetchArticles;

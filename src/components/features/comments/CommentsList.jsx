@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import fetchComments from "../../../apis/fetchComments";
 import CommentCard from "./CommentCard";
 import { useIsLoadingContext } from "../../contexts/IsLoadingContext";
+import List from "../../layouts/List";
 
 function CommentsList({ id }) {
   const handleCommentDelete = function (id) {
@@ -22,7 +23,7 @@ function CommentsList({ id }) {
   }, [commentsDeleted]);
 
   return (
-    <>
+    <List className="comments-list">
       {comments.map((comment, index) => (
         <CommentCard
           key={`comment-card-${comment?.comment_id}`}
@@ -31,7 +32,7 @@ function CommentsList({ id }) {
           handleCommentDelete={handleCommentDelete}
         />
       ))}
-    </>
+    </List>
   );
 }
 
