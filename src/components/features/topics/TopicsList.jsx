@@ -13,6 +13,9 @@ function TopicsList() {
       .then((topics) => {
         setTopics(topics);
       })
+      .catch((error) => {
+        throw error;
+      })
       .finally((error) => {
         hideLoading();
       });

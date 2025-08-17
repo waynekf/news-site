@@ -38,7 +38,9 @@ const ArticlesList = ({ topic }) => {
 
         <select
           value={sortInfo.direction}
-          onChange={(e) => setSortInfo({ ...sortInfo, direction: e.target.value })}
+          onChange={(e) =>
+            setSortInfo({ ...sortInfo, direction: e.target.value })
+          }
         >
           <option value="ASC">Ascending</option>
           <option value="DESC">Descending</option>

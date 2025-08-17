@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { preconnect } from "react-dom";
 import HomePage from "./components/features/home/HomePage";
 import AboutPage from "./components/features/about/AboutPage";
 import ArticlesPage from "./components/features/articles/ArticlesPage";
@@ -10,19 +11,25 @@ import NotFound from "./components/features/errors/NotFound";
 import "./css/App.css";
 
 function App() {
+  const url = `https://northcoders-news-be-udwh.onrender.com/api/articles`;
+  preconnect(url);
+
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/about" element={<AboutPage />} />
-      <Route path="/articles" element={<ArticlesPage />} />
-      <Route path="/articles/:id" element={<ArticlePage />} />
-      <Route path="/articles/:id/comments" element={<CommentsPage />} />
-      <Route path="/topics" element={<Topics />} />
-      <Route path="/topics/:id" element={<Topics />} />
-      <Route path="/topics/:id/articles/" element={<ArticlesPage />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <>
+      <div id="loading-container"></div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/articles" element={<ArticlesPage />} />
+        <Route path="/articles/:id" element={<ArticlePage />} />
+        <Route path="/articles/:id/comments" element={<CommentsPage />} />
+        <Route path="/topics" element={<Topics />} />
+        <Route path="/topics/:id" element={<Topics />} />
+        <Route path="/topics/:id/articles/" element={<ArticlesPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
