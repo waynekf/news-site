@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 import fetchArticles from "../../../apis/fetchArticles";
 import List from "../../layouts/List";
 import ArticleCard from "./ArticleCard";
@@ -6,11 +7,19 @@ import { useIsLoadingContext } from "../../contexts/IsLoadingContext";
 import customSorter from "../../../utils/customSorter";
 
 const ArticlesList = ({ topic }) => {
+  const [searchParams] = useSearchParams();
   const { hideLoading, showLoading } = useIsLoadingContext();
-  const [sortInfo, setSortInfo] = useState({
-    field: "comment_count",
-    direction: "DESC",
-  });
+
+  const initialSort = {
+    field: searchParams.get("sortfield")
+      ? searchParams.get("sortField")
+      : "comment_count",
+    direction: searchParams.get("sortdirection")
+      ? searchParams.get("sortdirection")
+      : "DESC",
+  };
+
+  const [sortInfo, setSortInfo] = useState(initialSort);
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -28,7 +37,7 @@ const ArticlesList = ({ topic }) => {
     return (
       <>
         <select
-          value={sortInfo.field}
+          value={sortInfo?.field ?? "comment_count"}
           onChange={(e) => setSortInfo({ ...sortInfo, field: e.target.value })}
         >
           <option value="votes">Votes</option>
@@ -37,7 +46,7 @@ const ArticlesList = ({ topic }) => {
         </select>
 
         <select
-          value={sortInfo.direction}
+          value={sortInfo?.direction ?? "ASC"}
           onChange={(e) =>
             setSortInfo({ ...sortInfo, direction: e.target.value })
           }
