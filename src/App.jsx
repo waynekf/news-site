@@ -8,7 +8,7 @@ import CommentsPage from "./components/features/comments/CommentsPage";
 import Topics from "./components/features/topics/TopicsPage";
 import NotFound from "./components/features/errors/NotFound";
 
-import "./css/App.css";
+import "./css/LessIsMore.css";
 
 function App() {
   const url = `https://northcoders-news-be-udwh.onrender.com/api/articles`;
